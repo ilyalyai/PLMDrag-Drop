@@ -42,6 +42,7 @@
             label7 = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             label9 = new System.Windows.Forms.Label();
+            button1 = new System.Windows.Forms.Button();
             SuspendLayout();
             // 
             // RowsCB
@@ -50,7 +51,7 @@
             RowsCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             RowsCB.FormattingEnabled = true;
             RowsCB.ItemHeight = 21;
-            RowsCB.Location = new System.Drawing.Point(165, 450);
+            RowsCB.Location = new System.Drawing.Point(151, 378);
             RowsCB.Name = "RowsCB";
             RowsCB.Size = new System.Drawing.Size(202, 193);
             RowsCB.TabIndex = 0;
@@ -66,7 +67,7 @@
             SumCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             SumCB.FormattingEnabled = true;
             SumCB.ItemHeight = 21;
-            SumCB.Location = new System.Drawing.Point(373, 450);
+            SumCB.Location = new System.Drawing.Point(359, 378);
             SumCB.Name = "SumCB";
             SumCB.Size = new System.Drawing.Size(202, 193);
             SumCB.TabIndex = 1;
@@ -83,7 +84,7 @@
             FiltersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             FiltersCB.FormattingEnabled = true;
             FiltersCB.ItemHeight = 21;
-            FiltersCB.Location = new System.Drawing.Point(165, 245);
+            FiltersCB.Location = new System.Drawing.Point(151, 173);
             FiltersCB.Name = "FiltersCB";
             FiltersCB.Size = new System.Drawing.Size(202, 193);
             FiltersCB.TabIndex = 2;
@@ -99,7 +100,7 @@
             HeadersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             HeadersCB.FormattingEnabled = true;
             HeadersCB.ItemHeight = 21;
-            HeadersCB.Location = new System.Drawing.Point(373, 245);
+            HeadersCB.Location = new System.Drawing.Point(359, 173);
             HeadersCB.Name = "HeadersCB";
             HeadersCB.Size = new System.Drawing.Size(202, 193);
             HeadersCB.TabIndex = 3;
@@ -118,7 +119,7 @@
             DefaultListCB.Items.AddRange(new object[] { "ТестБебебе" });
             DefaultListCB.Location = new System.Drawing.Point(12, 37);
             DefaultListCB.Name = "DefaultListCB";
-            DefaultListCB.Size = new System.Drawing.Size(700, 193);
+            DefaultListCB.Size = new System.Drawing.Size(700, 130);
             DefaultListCB.TabIndex = 4;
             DefaultListCB.DragDrop += Collection_DragDrop;
             DefaultListCB.DragEnter += Collection_DragEnter;
@@ -140,7 +141,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label2.Location = new System.Drawing.Point(81, 245);
+            label2.Location = new System.Drawing.Point(67, 173);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(78, 25);
             label2.TabIndex = 6;
@@ -150,7 +151,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label3.Location = new System.Drawing.Point(581, 245);
+            label3.Location = new System.Drawing.Point(567, 173);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(88, 25);
             label3.TabIndex = 7;
@@ -160,7 +161,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(85, 450);
+            label4.Location = new System.Drawing.Point(71, 378);
             label4.Name = "label4";
             label4.Size = new System.Drawing.Size(74, 25);
             label4.TabIndex = 8;
@@ -170,7 +171,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label5.Location = new System.Drawing.Point(581, 450);
+            label5.Location = new System.Drawing.Point(567, 378);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(102, 25);
             label5.TabIndex = 9;
@@ -180,7 +181,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label6.Location = new System.Drawing.Point(38, 319);
+            label6.Location = new System.Drawing.Point(24, 247);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(121, 45);
             label6.TabIndex = 10;
@@ -190,7 +191,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label7.Location = new System.Drawing.Point(581, 308);
+            label7.Location = new System.Drawing.Point(567, 236);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(152, 90);
             label7.TabIndex = 11;
@@ -200,7 +201,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label8.Location = new System.Drawing.Point(78, 529);
+            label8.Location = new System.Drawing.Point(64, 457);
             label8.Name = "label8";
             label8.Size = new System.Drawing.Size(81, 45);
             label8.TabIndex = 12;
@@ -210,17 +211,28 @@
             // 
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label9.Location = new System.Drawing.Point(581, 509);
+            label9.Location = new System.Drawing.Point(567, 437);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(129, 75);
             label9.TabIndex = 13;
             label9.Text = "Значения полей\r\nв этом списке будут\r\nпросуммированы\r\n(только для числовых\r\nполей)";
+            // 
+            // button1
+            // 
+            button1.Location = new System.Drawing.Point(151, 577);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(410, 72);
+            button1.TabIndex = 14;
+            button1.Text = "Готово";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // DragAndDropForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(739, 661);
+            Controls.Add(button1);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -258,5 +270,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button1;
     }
 }

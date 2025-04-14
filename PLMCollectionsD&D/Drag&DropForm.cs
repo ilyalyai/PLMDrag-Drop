@@ -9,19 +9,21 @@ namespace PLMCollectionsD_D
         private Form dragPreviewWindow; // Временное окно для отображения текста
 
         //список имён атрибутов
-        //readonly List<EntityAttribute> DefaultList;
+        readonly List<EntityAttribute> DefaultList;
         //список атрибутов, которые юзер перетащил
-        //List<EntityAttribute> Headers, Filters, Sum, Rows;
+        List<EntityAttribute> Headers, Filters, Sum, Rows;
         //словарик для универсального доступа к спискам выше
-        //Dictionary<string, List<EntityAttribute>> collections;
+        Dictionary<string, List<EntityAttribute>> collections;
+        //флаг, что форму закрыли корректно - что можно вытаскивать значения
+        private bool isCanceled;
 
-        public DragAndDropForm(/*List<EntityAttribute> attributeList*/)
+        public DragAndDropForm(list<entityattribute> attributelist)
         {
-            //DefaultList = new();
-            //attributeList.ForEach(attribute => DefaultList.Add(attribute));
+            DefaultList = new();
+            attributelist.foreach (attribute => defaultlist.add(attribute)) ;
 
-            //Headers = new(); Filters = new(); Sum = new(); Rows = new();
-            //collections = new() { { "HeadersCB", Headers }, { "FiltersCB", Filters }, { "SumCB", Sum }, { "RowsCB", Rows } };
+            Headers = new(); Filters = new(); Sum = new(); Rows = new();
+            collections = new() { { "headersCB", Headers }, { "FiltersCB", Filters }, { "SumCB", Sum }, { "RowsCB", Rows } };
             InitializeComponent();
         }
 
@@ -139,6 +141,18 @@ namespace PLMCollectionsD_D
                     dragPreviewWindow.Close();
                 }
             }
+        }
+
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            //заполняем списки атрибутов, которые хотим настроить
+            foreach (var col in collections)
+            {
+                col.Item2.AddRange(col.Item1.Items.ToArrayOfType<string>().Select(name => DefaultList.FirstOrDefault(e => e.GetFriendlyName() == name)));
+            }
+            //а всё. Остальное вытащим потом. Поставим только флаг, что всё завершилось удачно
+            isCanceled = false;
+            this.Close();
         }
     }
 }
