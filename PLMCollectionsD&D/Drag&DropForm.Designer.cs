@@ -56,7 +56,8 @@
             RowsCB.TabIndex = 0;
             RowsCB.DragDrop += Collection_DragDrop;
             RowsCB.DragEnter += Collection_DragEnter;
-            RowsCB.GiveFeedback += GiveFeedback;
+            RowsCB.GiveFeedback += Collection_GiveFeedback;
+            RowsCB.QueryContinueDrag += Collection_QueryContinueDrag;
             RowsCB.MouseDown += Collection_MouseDown;
             // 
             // SumCB
@@ -71,7 +72,8 @@
             SumCB.TabIndex = 1;
             SumCB.DragDrop += Collection_DragDrop;
             SumCB.DragEnter += Collection_DragEnter;
-            SumCB.GiveFeedback += GiveFeedback;
+            SumCB.GiveFeedback += Collection_GiveFeedback;
+            SumCB.QueryContinueDrag += Collection_QueryContinueDrag;
             SumCB.MouseDown += Collection_MouseDown;
             // 
             // FiltersCB
@@ -87,7 +89,8 @@
             FiltersCB.TabIndex = 2;
             FiltersCB.DragDrop += Collection_DragDrop;
             FiltersCB.DragEnter += Collection_DragEnter;
-            FiltersCB.GiveFeedback += GiveFeedback;
+            FiltersCB.GiveFeedback += Collection_GiveFeedback;
+            FiltersCB.QueryContinueDrag += Collection_QueryContinueDrag;
             FiltersCB.MouseDown += Collection_MouseDown;
             // 
             // HeadersCB
@@ -102,7 +105,8 @@
             HeadersCB.TabIndex = 3;
             HeadersCB.DragDrop += Collection_DragDrop;
             HeadersCB.DragEnter += Collection_DragEnter;
-            HeadersCB.GiveFeedback += GiveFeedback;
+            HeadersCB.GiveFeedback += Collection_GiveFeedback;
+            HeadersCB.QueryContinueDrag += Collection_QueryContinueDrag;
             HeadersCB.MouseDown += Collection_MouseDown;
             // 
             // DefaultListCB
@@ -118,7 +122,8 @@
             DefaultListCB.TabIndex = 4;
             DefaultListCB.DragDrop += Collection_DragDrop;
             DefaultListCB.DragEnter += Collection_DragEnter;
-            DefaultListCB.GiveFeedback += GiveFeedback;
+            DefaultListCB.GiveFeedback += Collection_GiveFeedback;
+            DefaultListCB.QueryContinueDrag += Collection_QueryContinueDrag;
             DefaultListCB.MouseDown += Collection_MouseDown;
             // 
             // label1
@@ -232,6 +237,7 @@
             Controls.Add(RowsCB);
             Name = "DragAndDropForm";
             Text = "Создание сводной таблицы";
+            MouseMove += MainForm_MouseMove;
             ResumeLayout(false);
             PerformLayout();
         }

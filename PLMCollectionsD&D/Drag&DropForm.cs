@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace PLMCollectionsD_D
@@ -13,7 +6,6 @@ namespace PLMCollectionsD_D
     public partial class DragAndDropForm : Form
     {
         private string draggedItem; //перетаскиваемый элемент
-        private Point dragPosition; //позиция этого элемента
         private Form dragPreviewWindow; // Временное окно для отображения текста
 
         //список имён атрибутов
@@ -43,11 +35,13 @@ namespace PLMCollectionsD_D
 
         private void Collection_DragDrop(object sender, DragEventArgs e)
         {
+            // Скрываем окно предпросмотра
             if (dragPreviewWindow != null && !dragPreviewWindow.IsDisposed)
             {
                 dragPreviewWindow.Close();
             }
 
+            // Остальная логика DragDrop
             if (e.Data.GetDataPresent(typeof(string)))
             {
                 var targetListBox = (ListBox)sender;
@@ -79,11 +73,8 @@ namespace PLMCollectionsD_D
             }
         }
 
-        private void GiveFeedback(object sender, GiveFeedbackEventArgs e)
+        private void Collection_GiveFeedback(object sender, GiveFeedbackEventArgs e)
         {
-            // Отключаем стандартный курсор
-            //e.UseDefaultCursors = false;
-
             // Получаем текущую позицию курсора
             Point cursorPosition = Cursor.Position;
 
@@ -119,19 +110,33 @@ namespace PLMCollectionsD_D
             dragPreviewWindow.Location = new Point(cursorPosition.X + 10, cursorPosition.Y + 10);
 
             // Показываем окно
-            dragPreviewWindow.Show();
+            if (!dragPreviewWindow.Visible)
+            {
+                dragPreviewWindow.Show();
+            }
         }
 
-        protected override void OnPaint(PaintEventArgs e)
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            base.OnPaint(e);
-
-            // Рисуем текст рядом с курсором, если есть перетаскиваемый элемент
-            if (!string.IsNullOrEmpty(draggedItem))
+            if (dragPreviewWindow != null && !dragPreviewWindow.IsDisposed)
             {
-                using (var brush = new SolidBrush(Color.Black))
+                // Получаем текущую позицию курсора
+                Point cursorPosition = Cursor.Position;
+
+                // Позиционируем окно рядом с курсором
+                dragPreviewWindow.Location = new Point(cursorPosition.X + 10, cursorPosition.Y + 10);
+            }
+        }
+
+        private void Collection_QueryContinueDrag(object sender, QueryContinueDragEventArgs e)
+        {
+            // Если пользователь отпустил кнопку мыши, завершаем Drag-and-Drop
+            if (e.Action == DragAction.Cancel || e.Action == DragAction.Drop)
+            {
+                // Скрываем окно предпросмотра
+                if (dragPreviewWindow != null && !dragPreviewWindow.IsDisposed)
                 {
-                    e.Graphics.DrawString(draggedItem, this.Font, brush, dragPosition.X + 10, dragPosition.Y + 10);
+                    dragPreviewWindow.Close();
                 }
             }
         }
