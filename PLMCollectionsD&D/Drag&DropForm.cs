@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PLMCollectionsD_D
@@ -9,21 +10,25 @@ namespace PLMCollectionsD_D
         private Form dragPreviewWindow; // Временное окно для отображения текста
 
         //список имён атрибутов
-        readonly List<EntityAttribute> DefaultList;
-        //список атрибутов, которые юзер перетащил
-        List<EntityAttribute> Headers, Filters, Sum, Rows;
-        //словарик для универсального доступа к спискам выше
-        Dictionary<string, List<EntityAttribute>> collections;
-        //флаг, что форму закрыли корректно - что можно вытаскивать значения
-        private bool isCanceled;
+        private readonly List<AttributeDef> DefaultList;
 
-        public DragAndDropForm(list<entityattribute> attributelist)
+        //список атрибутов, которые юзер перетащил
+        public List<AttributeDef> Headers, Filters, Sum, Rows;
+
+        //словарик для универсального доступа к спискам выше
+        public List<(ListBox, List<AttributeDef>)> collections;
+
+        //флаг, что форму закрыли корректно - что можно вытаскивать значения
+        public bool isCanceled;
+
+        public DragAndDropForm(List<AttributeDef> attributeList)
         {
+            isCanceled = true;
+
             DefaultList = new();
-            attributelist.foreach (attribute => defaultlist.add(attribute)) ;
+            attributeList.ForEach(attribute => DefaultList.Add(attribute));
 
             Headers = new(); Filters = new(); Sum = new(); Rows = new();
-            collections = new() { { "headersCB", Headers }, { "FiltersCB", Filters }, { "SumCB", Sum }, { "RowsCB", Rows } };
             InitializeComponent();
         }
 
@@ -48,6 +53,10 @@ namespace PLMCollectionsD_D
             {
                 var targetListBox = (ListBox)sender;
                 string item = e.Data.GetData(typeof(string)).ToString();
+                var attrItem = DefaultList.FirstOrDefault(e => e.NameUI == item);
+                //суммировать можем только числа
+                if (attrItem != null && !(attrItem.DataType == AttributeDefBase.DataTypeEnum.IntegerNumber || attrItem.DataType == AttributeDefBase.DataTypeEnum.Number) && targetListBox == SumCB)
+                    return;
 
                 // Удаляем элемент из исходного ListBox
                 foreach (Control control in this.Controls)
@@ -148,7 +157,7 @@ namespace PLMCollectionsD_D
             //заполняем списки атрибутов, которые хотим настроить
             foreach (var col in collections)
             {
-                col.Item2.AddRange(col.Item1.Items.ToArrayOfType<string>().Select(name => DefaultList.FirstOrDefault(e => e.GetFriendlyName() == name)));
+                col.Item2.AddRange(col.Item1.Items.ToArrayOfType<string>().Select(name => DefaultList.FirstOrDefault(e => e.NameUI == name)));
             }
             //а всё. Остальное вытащим потом. Поставим только флаг, что всё завершилось удачно
             isCanceled = false;

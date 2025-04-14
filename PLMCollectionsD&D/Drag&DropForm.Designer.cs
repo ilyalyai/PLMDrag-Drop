@@ -44,9 +44,9 @@
             label9 = new System.Windows.Forms.Label();
             button1 = new System.Windows.Forms.Button();
             SuspendLayout();
-            // 
+            //
             // RowsCB
-            // 
+            //
             RowsCB.AllowDrop = true;
             RowsCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             RowsCB.FormattingEnabled = true;
@@ -60,9 +60,9 @@
             RowsCB.GiveFeedback += Collection_GiveFeedback;
             RowsCB.QueryContinueDrag += Collection_QueryContinueDrag;
             RowsCB.MouseDown += Collection_MouseDown;
-            // 
+            //
             // SumCB
-            // 
+            //
             SumCB.AllowDrop = true;
             SumCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             SumCB.FormattingEnabled = true;
@@ -76,9 +76,9 @@
             SumCB.GiveFeedback += Collection_GiveFeedback;
             SumCB.QueryContinueDrag += Collection_QueryContinueDrag;
             SumCB.MouseDown += Collection_MouseDown;
-            // 
+            //
             // FiltersCB
-            // 
+            //
             FiltersCB.AccessibleName = "Фильтры";
             FiltersCB.AllowDrop = true;
             FiltersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -93,9 +93,9 @@
             FiltersCB.GiveFeedback += Collection_GiveFeedback;
             FiltersCB.QueryContinueDrag += Collection_QueryContinueDrag;
             FiltersCB.MouseDown += Collection_MouseDown;
-            // 
+            //
             // HeadersCB
-            // 
+            //
             HeadersCB.AllowDrop = true;
             HeadersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             HeadersCB.FormattingEnabled = true;
@@ -109,14 +109,14 @@
             HeadersCB.GiveFeedback += Collection_GiveFeedback;
             HeadersCB.QueryContinueDrag += Collection_QueryContinueDrag;
             HeadersCB.MouseDown += Collection_MouseDown;
-            // 
+            //
             // DefaultListCB
-            // 
+            //
             DefaultListCB.AllowDrop = true;
             DefaultListCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             DefaultListCB.FormattingEnabled = true;
             DefaultListCB.ItemHeight = 21;
-            DefaultListCB.Items.AddRange(new object[] { "ТестБебебе" });
+            DefaultListCB.Items.AddRange(DefaultList.Select(attr => attr.NameUI).ToArray());
             DefaultListCB.Location = new System.Drawing.Point(12, 37);
             DefaultListCB.Name = "DefaultListCB";
             DefaultListCB.Size = new System.Drawing.Size(700, 130);
@@ -126,9 +126,9 @@
             DefaultListCB.GiveFeedback += Collection_GiveFeedback;
             DefaultListCB.QueryContinueDrag += Collection_QueryContinueDrag;
             DefaultListCB.MouseDown += Collection_MouseDown;
-            // 
+            //
             // label1
-            // 
+            //
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label1.Location = new System.Drawing.Point(12, 9);
@@ -136,9 +136,9 @@
             label1.Size = new System.Drawing.Size(57, 25);
             label1.TabIndex = 5;
             label1.Text = "Поля";
-            // 
+            //
             // label2
-            // 
+            //
             label2.AutoSize = true;
             label2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label2.Location = new System.Drawing.Point(67, 173);
@@ -146,9 +146,9 @@
             label2.Size = new System.Drawing.Size(78, 25);
             label2.TabIndex = 6;
             label2.Text = "Фильты";
-            // 
+            //
             // label3
-            // 
+            //
             label3.AutoSize = true;
             label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label3.Location = new System.Drawing.Point(567, 173);
@@ -156,9 +156,9 @@
             label3.Size = new System.Drawing.Size(88, 25);
             label3.TabIndex = 7;
             label3.Text = "Столбцы";
-            // 
+            //
             // label4
-            // 
+            //
             label4.AutoSize = true;
             label4.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label4.Location = new System.Drawing.Point(71, 378);
@@ -166,9 +166,9 @@
             label4.Size = new System.Drawing.Size(74, 25);
             label4.TabIndex = 8;
             label4.Text = "Строки";
-            // 
+            //
             // label5
-            // 
+            //
             label5.AutoSize = true;
             label5.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label5.Location = new System.Drawing.Point(567, 378);
@@ -176,9 +176,9 @@
             label5.Size = new System.Drawing.Size(102, 25);
             label5.TabIndex = 9;
             label5.Text = "Суммарно";
-            // 
+            //
             // label6
-            // 
+            //
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label6.Location = new System.Drawing.Point(24, 247);
@@ -186,9 +186,9 @@
             label6.Size = new System.Drawing.Size(121, 45);
             label6.TabIndex = 10;
             label6.Text = "Для полей в этом \r\nсписке будут \r\nдобавлены фильтры";
-            // 
+            //
             // label7
-            // 
+            //
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label7.Location = new System.Drawing.Point(567, 236);
@@ -196,9 +196,9 @@
             label7.Size = new System.Drawing.Size(152, 90);
             label7.TabIndex = 11;
             label7.Text = "Значения полей в этом\r\nсписке будут выведены\r\nв виде столбцов. \r\nРекомендуется добавлять \r\nполя не более чем с 5\r\nзначениями!";
-            // 
+            //
             // label8
-            // 
+            //
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label8.Location = new System.Drawing.Point(64, 457);
@@ -206,9 +206,9 @@
             label8.Size = new System.Drawing.Size(81, 45);
             label8.TabIndex = 12;
             label8.Text = "Стандартное\r\nотображение\r\nполей";
-            // 
+            //
             // label9
-            // 
+            //
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             label9.Location = new System.Drawing.Point(567, 437);
@@ -216,9 +216,9 @@
             label9.Size = new System.Drawing.Size(129, 75);
             label9.TabIndex = 13;
             label9.Text = "Значения полей\r\nв этом списке будут\r\nпросуммированы\r\n(только для числовых\r\nполей)";
-            // 
+            //
             // button1
-            // 
+            //
             button1.Location = new System.Drawing.Point(151, 577);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(410, 72);
@@ -226,9 +226,9 @@
             button1.Text = "Готово";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
-            // 
+            //
             // DragAndDropForm
-            // 
+            //
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(739, 661);
@@ -247,6 +247,7 @@
             Controls.Add(FiltersCB);
             Controls.Add(SumCB);
             Controls.Add(RowsCB);
+            collections = new() { (HeadersCB, Headers), (FiltersCB, Filters), (SumCB, Sum), (RowsCB, Rows) };
             Name = "DragAndDropForm";
             Text = "Создание сводной таблицы";
             MouseMove += MainForm_MouseMove;
@@ -254,7 +255,7 @@
             PerformLayout();
         }
 
-        #endregion
+        #endregion Windows Form Designer generated code
 
         private System.Windows.Forms.ListBox RowsCB;
         private System.Windows.Forms.ListBox SumCB;
