@@ -1,6 +1,6 @@
 ﻿namespace PLMCollectionsD_D
 {
-    partial class Form1
+    partial class DragAndDropForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Rows = new System.Windows.Forms.ListBox();
-            Sum = new System.Windows.Forms.ListBox();
-            Filters = new System.Windows.Forms.ListBox();
-            Headers = new System.Windows.Forms.ListBox();
-            DefaultList = new System.Windows.Forms.ListBox();
+            RowsCB = new System.Windows.Forms.ListBox();
+            SumCB = new System.Windows.Forms.ListBox();
+            FiltersCB = new System.Windows.Forms.ListBox();
+            HeadersCB = new System.Windows.Forms.ListBox();
+            DefaultListCB = new System.Windows.Forms.ListBox();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
@@ -44,56 +44,77 @@
             label9 = new System.Windows.Forms.Label();
             SuspendLayout();
             // 
-            // Rows
+            // RowsCB
             // 
-            Rows.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Rows.FormattingEnabled = true;
-            Rows.ItemHeight = 21;
-            Rows.Location = new System.Drawing.Point(165, 450);
-            Rows.Name = "Rows";
-            Rows.Size = new System.Drawing.Size(202, 193);
-            Rows.TabIndex = 0;
+            RowsCB.AllowDrop = true;
+            RowsCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            RowsCB.FormattingEnabled = true;
+            RowsCB.ItemHeight = 21;
+            RowsCB.Location = new System.Drawing.Point(165, 450);
+            RowsCB.Name = "RowsCB";
+            RowsCB.Size = new System.Drawing.Size(202, 193);
+            RowsCB.TabIndex = 0;
+            RowsCB.DragDrop += Collection_DragDrop;
+            RowsCB.DragEnter += Collection_DragEnter;
+            RowsCB.MouseDown += Collection_MouseDown;
             // 
-            // Sum
+            // SumCB
             // 
-            Sum.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Sum.FormattingEnabled = true;
-            Sum.ItemHeight = 21;
-            Sum.Location = new System.Drawing.Point(373, 450);
-            Sum.Name = "Sum";
-            Sum.Size = new System.Drawing.Size(202, 193);
-            Sum.TabIndex = 1;
+            SumCB.AllowDrop = true;
+            SumCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            SumCB.FormattingEnabled = true;
+            SumCB.ItemHeight = 21;
+            SumCB.Location = new System.Drawing.Point(373, 450);
+            SumCB.Name = "SumCB";
+            SumCB.Size = new System.Drawing.Size(202, 193);
+            SumCB.TabIndex = 1;
+            SumCB.DragDrop += Collection_DragDrop;
+            SumCB.DragEnter += Collection_DragEnter;
+            SumCB.MouseDown += Collection_MouseDown;
             // 
-            // Filters
+            // FiltersCB
             // 
-            Filters.AccessibleName = "Фильтры";
-            Filters.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Filters.FormattingEnabled = true;
-            Filters.ItemHeight = 21;
-            Filters.Location = new System.Drawing.Point(165, 245);
-            Filters.Name = "Filters";
-            Filters.Size = new System.Drawing.Size(202, 193);
-            Filters.TabIndex = 2;
+            FiltersCB.AccessibleName = "Фильтры";
+            FiltersCB.AllowDrop = true;
+            FiltersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            FiltersCB.FormattingEnabled = true;
+            FiltersCB.ItemHeight = 21;
+            FiltersCB.Location = new System.Drawing.Point(165, 245);
+            FiltersCB.Name = "FiltersCB";
+            FiltersCB.Size = new System.Drawing.Size(202, 193);
+            FiltersCB.TabIndex = 2;
+            FiltersCB.DragDrop += Collection_DragDrop;
+            FiltersCB.DragEnter += Collection_DragEnter;
+            FiltersCB.MouseDown += Collection_MouseDown;
             // 
-            // Headers
+            // HeadersCB
             // 
-            Headers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Headers.FormattingEnabled = true;
-            Headers.ItemHeight = 21;
-            Headers.Location = new System.Drawing.Point(373, 245);
-            Headers.Name = "Headers";
-            Headers.Size = new System.Drawing.Size(202, 193);
-            Headers.TabIndex = 3;
+            HeadersCB.AllowDrop = true;
+            HeadersCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            HeadersCB.FormattingEnabled = true;
+            HeadersCB.ItemHeight = 21;
+            HeadersCB.Location = new System.Drawing.Point(373, 245);
+            HeadersCB.Name = "HeadersCB";
+            HeadersCB.Size = new System.Drawing.Size(202, 193);
+            HeadersCB.TabIndex = 3;
+            HeadersCB.DragDrop += Collection_DragDrop;
+            HeadersCB.DragEnter += Collection_DragEnter;
+            HeadersCB.MouseDown += Collection_MouseDown;
             // 
-            // DefaultList
+            // DefaultListCB
             // 
-            DefaultList.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            DefaultList.FormattingEnabled = true;
-            DefaultList.ItemHeight = 21;
-            DefaultList.Location = new System.Drawing.Point(12, 37);
-            DefaultList.Name = "DefaultList";
-            DefaultList.Size = new System.Drawing.Size(700, 193);
-            DefaultList.TabIndex = 4;
+            DefaultListCB.AllowDrop = true;
+            DefaultListCB.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            DefaultListCB.FormattingEnabled = true;
+            DefaultListCB.ItemHeight = 21;
+            DefaultListCB.Items.AddRange(new object[] { "ТестБебебе" });
+            DefaultListCB.Location = new System.Drawing.Point(12, 37);
+            DefaultListCB.Name = "DefaultListCB";
+            DefaultListCB.Size = new System.Drawing.Size(700, 193);
+            DefaultListCB.TabIndex = 4;
+            DefaultListCB.DragDrop += Collection_DragDrop;
+            DefaultListCB.DragEnter += Collection_DragEnter;
+            DefaultListCB.MouseDown += Collection_MouseDown;
             // 
             // label1
             // 
@@ -185,7 +206,7 @@
             label9.TabIndex = 13;
             label9.Text = "Значения полей\r\nв этом списке будут\r\nпросуммированы\r\n(только для числовых\r\nполей)";
             // 
-            // Form1
+            // DragAndDropForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -199,12 +220,12 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(DefaultList);
-            Controls.Add(Headers);
-            Controls.Add(Filters);
-            Controls.Add(Sum);
-            Controls.Add(Rows);
-            Name = "Form1";
+            Controls.Add(DefaultListCB);
+            Controls.Add(HeadersCB);
+            Controls.Add(FiltersCB);
+            Controls.Add(SumCB);
+            Controls.Add(RowsCB);
+            Name = "DragAndDropForm";
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();
@@ -212,11 +233,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox Rows;
-        private System.Windows.Forms.ListBox Sum;
-        private System.Windows.Forms.ListBox Filters;
-        private System.Windows.Forms.ListBox Headers;
-        private System.Windows.Forms.ListBox DefaultList;
+        private System.Windows.Forms.ListBox RowsCB;
+        private System.Windows.Forms.ListBox SumCB;
+        private System.Windows.Forms.ListBox FiltersCB;
+        private System.Windows.Forms.ListBox HeadersCB;
+        private System.Windows.Forms.ListBox DefaultListCB;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
